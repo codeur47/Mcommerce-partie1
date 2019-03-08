@@ -47,6 +47,11 @@ public class ProductController {
         return produitsFiltres;
     }
 
+    @GetMapping(value = "/trierProduitsParOrdreAlphabetique")
+    public List<Product> trierProduitsParOrdreAlphabetique() {
+          return productDao.findALLByNomIsNotNullOrderByNomAsc();
+    }
+
 
     //Récupérer un produit par son Id
     @ApiOperation(value = "Récupère un produit grâce à son ID à condition que celui-ci soit en stock!")
@@ -94,6 +99,7 @@ public class ProductController {
 
         productDao.save(product);
     }
+
 
 
     //Pour les tests
